@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  regular-table {
+    height: 400px;
+    width: 80%;
+  }
+
+  #chart{
+    width: 500px;
+    height: 500px;
+    border:tomato;
+    border-width: 1px;
+    border-style: solid;
+    position:relative
+  }
+
+  .node{
+    width: 100px;
+    height: 50px;
+    border: black;
+    border-style: solid;
+    border-radius: 5px;
+    position: absolute;
+    text-align: center;
+  }
