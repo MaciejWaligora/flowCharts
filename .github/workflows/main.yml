@@ -26,7 +26,7 @@ jobs:
       run: npm run bundle
 
     - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3  # Deploy to GitHub Pages
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+      uses: JamesIves/github-pages-deploy-action@releases/v4
+      with:
+        BRANCH: gh-pages
+        FOLDER: ./dist
