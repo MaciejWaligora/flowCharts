@@ -1,3 +1,6 @@
+import { BezierConnector } from "@jsplumb/browser-ui"
+
+
 export class Node{
     
     #name;
@@ -12,6 +15,8 @@ export class Node{
         this.chart = chart;
         this.instance = instance;
         this.createNode();
+        this.setSourceEndpoint();
+        this.setTargetEndpoint();
     }
 
 
@@ -28,6 +33,13 @@ export class Node{
             maxConnections:5,
             endpoint:"Dot",   
             anchor:"Bottom",
+
+            connector:{
+                type:BezierConnector.type,
+                options:{
+                    curviness: 50
+                }
+            }
         })
     }
 
@@ -37,6 +49,7 @@ export class Node{
             maxConnections:5,
             endpoint:"Rectangle",   
             anchor: "Top",
+
         })
     }
 }

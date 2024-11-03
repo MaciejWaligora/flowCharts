@@ -1,10 +1,6 @@
 import {newInstance, ready} from '@jsplumb/browser-ui'
 import { Node } from './node';
 
-function showCurrentConnections (instance){
-    const connections = instance.getConnections();
-      return connections;
-}
 
 ready(()=>{  
     
@@ -25,10 +21,17 @@ ready(()=>{
             value: value,
             name: value
         });
-
-        node.setSourceEndpoint();
-        node.setTargetEndpoint();
     }
+
+    instance.bind("connection", (newCon) => {
+        const existingCons = instance.getConnections();
+        for(let i = 0; i < existingCons.length; i++){
+            if(existingCons[i].sourceId === newCon.targetId && existingCons[i].targetId === newCon.sourceId){
+                console.log('this connection is not allowed');
+                instance.deleteConnection(existingCons[existingCons.length-1]);
+            }
+        }
+     });
 
     /**
      * Control menu part:
