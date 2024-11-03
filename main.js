@@ -47,11 +47,5 @@ ready(()=>{
         addNode(chart, instance,val, 'test');
     });
 
-    const getConnsButton = document.createElement('button');
-    getConnsButton.innerHTML = 'Show Connections';
-    getConnsButton.addEventListener('click', () => {
-        console.log(showCurrentConnections(instance));
-    })
     document.body.appendChild(button);
-    document.body.appendChild(getConnsButton);
 })
